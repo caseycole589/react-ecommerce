@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { CategoryItem } from "../components/category-item/category-item.component"
 import "./directory.styles.scss"
 export const DirectoryComponent = ({ categories }) => {
