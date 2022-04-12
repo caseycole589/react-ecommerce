@@ -1,8 +1,7 @@
-import { useState } from "react"
-import "./categories.styles.scss"
-import { CategoryItem } from "./components/category-item/category-item.component"
+import { DirectoryComponent } from "./directory/directory.component.jsx"
+
 const App = () => {
-  const [categorys] = useState([
+  const categories = [
     {
       "id": 1,
       "title": "hats",
@@ -28,14 +27,8 @@ const App = () => {
       "title": "mens",
       "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
     }
-  ])
-  return (
-    <div className="categories-container">
-      {categorys.map(category => (
-        <CategoryItem key={category.title} category={category} />
-      ))}
-    </div>
-  )
+  ]
+  return <DirectoryComponent categories={categories} />
 }
 
 export default App
