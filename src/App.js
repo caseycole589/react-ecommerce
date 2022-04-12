@@ -1,34 +1,23 @@
-import { DirectoryComponent } from "./directory/directory.component.jsx"
+import { Home } from "./routes/home/home.component.jsx"
+import { Routes, Route, Outlet } from "react-router-dom"
+const Navigation = () => {
+  return (
+    <div>
+      <h1>I am the navic</h1>
+      <Outlet />
+    </div>
+  )
+}
 
 const App = () => {
-  const categories = [
-    {
-      "id": 1,
-      "title": "hats",
-      "imageUrl": "https://i.ibb.co/cvpntL1/hats.png"
-    },
-    {
-      "id": 2,
-      "title": "jackets",
-      "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png"
-    },
-    {
-      "id": 3,
-      "title": "sneakers",
-      "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png"
-    },
-    {
-      "id": 4,
-      "title": "womens",
-      "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png"
-    },
-    {
-      "id": 5,
-      "title": "mens",
-      "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
-    }
-  ]
-  return <DirectoryComponent categories={categories} />
+  return (
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        {/* when you match / add index as base component */}
+        <Route index element={<Home />} />
+      </Route>
+    </Routes>
+  )
 }
 
 export default App

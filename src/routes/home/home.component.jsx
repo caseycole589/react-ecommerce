@@ -1,4 +1,4 @@
-import { DirectoryComponent } from "../directory/directory.component.jsx"
+import { DirectoryComponent } from "../../components/directory/directory.component"
 
 export const Home = () => {
   const categories = [
@@ -28,5 +28,9 @@ export const Home = () => {
       "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
     }
   ]
-  return <DirectoryComponent categories={categories} />
+  return (
+    <div>
+      <DirectoryComponent categories={categories} />
+    </div>
+  )
 }
