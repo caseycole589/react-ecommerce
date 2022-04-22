@@ -1,11 +1,11 @@
-import "./sign-up-form.styles.scss";
 import { useState } from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
-import { FormInput } from "../form-input/from-input.component";
 import { Button } from "../button/button.component";
+import { FormInput } from "../form-input/from-input.component";
+import "./sign-up-form.styles.scss";
 
 const defaultFormFields = {
   displayName: "",
@@ -35,6 +35,7 @@ export const SignUpForm = () => {
       resetFormFields();
     } catch (err) {
       if (err.code === "auth/email-already-in-use") {
+        //TODO red error message
         alert("email already in use");
       }
       console.log(err);
