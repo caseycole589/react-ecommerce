@@ -1,9 +1,8 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
 import { Button } from "../button/button.component";
 import { FormInput } from "../form-input/from-input.component";
 import "./sign-in-form.styles.scss";
-import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
   email: "",
@@ -14,15 +13,12 @@ export const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { password, email } = formFields;
 
-  const { setCurrentUser } = useContext(UserContext);
-
   const resetFormFields = () => setFormFields(defaultFormFields);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const user = await signInAuthUserWithEmailAndPassword(email, password);
-      setCurrentUser(user);
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (err) {
       //TODO error handler turn red
