@@ -13,12 +13,14 @@ const addCartItem = (cartItems, product) => {
 	return [...cartItems, { ...product, quantity: 1 }];
 };
 const removeItemFromCart = (cartItems, itemToRemove) => {
-	return cartItems.map((obj) => {
-		if (obj.id === itemToRemove.id && obj.quantity > 0) {
-			return { ...obj, quantity: obj.quantity - 1 };
-		}
-		return obj;
-	});
+	return cartItems
+		.map((obj) => {
+			if (obj.id === itemToRemove.id) {
+				return { ...obj, quantity: obj.quantity - 1 };
+			}
+			return obj;
+		})
+		.filter((obj) => obj.quantity > 0);
 };
 
 const clearItemFromCart = (cartItems, itemToRemove) => {
@@ -33,12 +35,14 @@ export const CartContext = createContext({
 	removeCartItem: () => {},
 	clearCartItem: () => {},
 	cartCount: 0,
+	cartTotal: 0,
 });
 
 export const CartProvider = ({ children }) => {
 	const [cartOpen, setCartOpen] = useState(false);
 	const [cartItems, setCartItems] = useState([]);
 	const [cartCount, setCartCount] = useState(0);
+	const [cartTotal, setCartTotal] = useState(0);
 	const addItemToCart = (product) => {
 		setCartItems(addCartItem(cartItems, product));
 	};
@@ -51,10 +55,17 @@ export const CartProvider = ({ children }) => {
 	};
 	//my solution was way cleaner
 	useEffect(() => {
-		const newCartCount = cartItems.reduce((prev, curr) => {
-			return prev + curr.quantity;
+		const newCartCount = cartItems.reduce((prev, current) => {
+			return prev + current.quantity;
 		}, 0);
 		setCartCount(newCartCount);
+	}, [cartItems]);
+
+	useEffect(() => {
+		const total = cartItems.reduce((prev, current) => {
+			return prev + current.quantity * current.price;
+		}, 0);
+		setCartTotal(total);
 	}, [cartItems]);
 
 	const value = {
@@ -65,6 +76,7 @@ export const CartProvider = ({ children }) => {
 		removeCartItem,
 		clearCartItem,
 		cartCount,
+		cartTotal,
 	};
 	return (
 		<CartContext.Provider value={value}>{children}</CartContext.Provider>
