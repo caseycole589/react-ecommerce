@@ -9,7 +9,7 @@ export const ProductsContext = createContext({
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   // useEffect(() => {
-  //   addCollectionAndDocuments("categories", SHOP_DATA);
+  //   addCollectionAndDocuments("categories", SHOP_DATA, 'title');
   // }, []);
   const value = { products, setProducts };
   return (
