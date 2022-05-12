@@ -24,6 +24,7 @@ export const Body = styled.div`
     font-weight: bold;
     margin: 0 6px 0;
     font-size: 22px;
+    text-transform: uppercase;
     color: #4a4a4a;
   }
 
@@ -54,10 +55,6 @@ export const DirectoryItemContainer = styled.div`
     & ${Body} {
       opacity: 0.9;
     }
-  }
-
-  &.large {
-    height: 380px;
   }
 
   &:first-child {

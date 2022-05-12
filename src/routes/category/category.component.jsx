@@ -5,7 +5,6 @@ import { CategoriesContext } from "../../contexts/categories.context";
 import "./category.styles.scss";
 
 export const Category = () => {
-	console.log("name");
 	const { category } = useParams();
 	const { categories } = useContext(CategoriesContext);
 	const [products, setProducts] = useState(categories[category]);

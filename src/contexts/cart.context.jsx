@@ -1,4 +1,10 @@
-import { createContext, useState, useEffect } from "react";
+import {
+	createContext,
+	useState,
+	useEffect,
+	useReducer,
+	dispatch,
+} from "react";
 
 const addCartItem = (cartItems, product) => {
 	const found = cartItems.find((item) => product.id === item.id);
@@ -28,15 +34,30 @@ const clearItemFromCart = (cartItems, itemToRemove) => {
 };
 
 export const CartContext = createContext({
-	cartOpen: false,
 	setCartOpen: () => {},
-	cartItems: [],
 	addItemToCart: () => {},
 	removeCartItem: () => {},
 	clearCartItem: () => {},
+});
+
+const INITIAL_STATE = {
+	cartOpen: false,
+	cartItems: [],
 	cartCount: 0,
 	cartTotal: 0,
-});
+};
+
+const cartReduce = (state, action) => {
+	const { type, payload } = action;
+	switch (type) {
+		default:
+			throw new Error("unhandled type" + type);
+	}
+};
+
+const AddToCart = (itemToAdd) => {
+	dispatch({ type: "ADD_TO_CART", payload: itemToAdd });
+};
 
 export const CartProvider = ({ children }) => {
 	const [cartOpen, setCartOpen] = useState(false);
