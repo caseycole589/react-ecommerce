@@ -1,10 +1,10 @@
 import { Fragment, useContext } from "react";
 import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { CartDropdown } from "../../components/cart-dropdown/cart-dropdown.component";
 import { CartIcon } from "../../components/cart-icon/cart-icon.component";
 import { CartContext } from "../../contexts/cart.context";
-import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import {
 	LogoContainer,
@@ -12,11 +12,12 @@ import {
 	NavLink,
 	NavLinks,
 } from "./navigation.styles.jsx";
-
+import { selectCurrentUser } from "../../store/user/user.selector";
 export const Navigation = () => {
 	//use context is a hook that causes component to rerender any time there is a change
-	const { currentUser } = useContext(UserContext);
+	const currentUser = useSelector(selectCurrentUser);
 	const { cartOpen } = useContext(CartContext);
+
 	return (
 		<Fragment>
 			<NavigationContainer>
