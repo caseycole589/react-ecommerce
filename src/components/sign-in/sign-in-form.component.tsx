@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { AuthError } from "firebase/auth";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
 import { Button } from "../button/button.component";
 import { FormInput } from "../form-input/from-input.component";
@@ -15,14 +16,14 @@ export const SignInForm = () => {
 
   const resetFormFields = () => setFormFields(defaultFormFields);
 
-  const handleSubmit = async (evt) => {
+  const handleSubmit = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (err) {
       //TODO error handler turn red
-      switch (err.code) {
+      switch ((err as AuthError).code) {
         case "auth/wrong-password":
           alert("Wrong Password");
           break;
@@ -36,7 +37,7 @@ export const SignInForm = () => {
     }
   };
 
-  const handleChange = (evt) => {
+  const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = evt.target;
     setFormFields({ ...formFields, [name]: value });
   };
@@ -63,7 +64,9 @@ export const SignInForm = () => {
           label="Password"
         />
         <div className="buttons-container">
-          <Button type="submit">Sign In</Button>
+          <Button isLoading={false} type="submit">
+            Sign In
+          </Button>
           {/*TODO get rid of google signin*/}
         </div>
       </form>

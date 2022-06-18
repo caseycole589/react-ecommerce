@@ -10,7 +10,7 @@ import "./shop.styles.scss";
 export const Shop = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(fetchCategoriesAsync());
+		dispatch(fetchCategoriesAsync() as any);
 	}, [dispatch]);
 
 	return (

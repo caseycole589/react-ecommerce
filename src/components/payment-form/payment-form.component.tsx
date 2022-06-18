@@ -1,5 +1,5 @@
 // TODO: implement a full form with address and phone, email
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selector";
@@ -12,7 +12,7 @@ export const PaymentForm = () => {
 	const amount = useSelector(selectCartTotal);
 	const currentUser = useSelector(selectCurrentUser);
 	const [isProcessingPayment, setIsProcessingPayment] = useState(false);
-	const paymentHandler = async (e) => {
+	const paymentHandler = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		if (!stripe || !elements) {
@@ -34,10 +34,14 @@ export const PaymentForm = () => {
 		).then((resp) => resp.json());
 
 		const clientSecret = response.paymentIntent.client_secret;
-
+		const cardDetails = elements.getElement(CardElement);
+		if (cardDetails === null) {
+			console.log("card detail is null");
+			return;
+		}
 		const paymentResult = await stripe.confirmCardPayment(clientSecret, {
 			payment_method: {
-				card: elements.getElement(CardElement),
+				card: cardDetails,
 				billing_details: {
 					name: currentUser ? currentUser.displayName : "guest",
 				},

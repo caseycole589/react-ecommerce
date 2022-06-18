@@ -23,7 +23,7 @@ export const CartDropdown = () => {
 				)}
 			</CartItems>
 			<Link className="nav-link" to="/checkout">
-				<Button>Checkout</Button>
+				<Button isLoading={false}>Checkout</Button>
 			</Link>
 		</CartDropdownContainer>
 	);

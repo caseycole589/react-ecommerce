@@ -6,7 +6,6 @@ export const Authentication = () => {
     <div className="authentication-container">
       <SignUpForm />
       <SignInForm />
-      {/* <button onClick={signInWithGoogleRedirect}>Sign In WIth Google Redirect</button> */}
     </div>
   );
 };

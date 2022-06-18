@@ -6,7 +6,13 @@ import {
 	addItemToCart,
 	clearCartItem,
 } from "../../store/cart/cart.action";
-export const CheckoutItem = ({ product }) => {
+import { CartItem } from "../../store/cart/cart.types";
+import { FC } from "react";
+interface CheckoutItemProps {
+	product: CartItem;
+}
+
+export const CheckoutItem: FC<CheckoutItemProps> = ({ product }) => {
 	const { name, quantity, price, imageUrl } = product;
 	const dispatch = useDispatch();
 	const cartItems = useSelector(selectCartItems);

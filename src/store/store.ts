@@ -22,7 +22,6 @@ const middleWares = [
 ].filter(Boolean);
 
 const composedEnhancers = compose(applyMiddleware(...middleWares));
-
 export const store = createStore(
 	persistedReducer,
 	undefined,
