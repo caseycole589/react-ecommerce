@@ -5,7 +5,8 @@ import storage from "redux-persist/lib/storage";
 import { rootReducer } from "./root-reducer";
 import thunk from "redux-thunk";
 
-// https://redux.js.org/introduction/why-rtk-is-redux-today
+export type RootState = ReturnType<typeof rootReducer>;
+
 //root reducer
 const persistConfig = {
 	key: "root",
