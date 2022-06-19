@@ -4,7 +4,9 @@ import {
 	selectCartCount,
 	selectCartOpen,
 } from "../../store/cart/cart.selector";
-import { CartIconContainer, ItemCount, ShoppingIcon } from "./cart-icon.styles";
+import "./cart-icon.styles.scss";
+//@ts-ignore
+import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
 
 export const CartIcon = () => {
 	const dispatch = useDispatch();
@@ -12,9 +14,9 @@ export const CartIcon = () => {
 	const cartCount = useSelector(selectCartCount);
 	const handleClick = () => dispatch(setCartOpen(!cartOpen));
 	return (
-		<CartIconContainer onClick={handleClick}>
-			<ShoppingIcon />
-			<ItemCount>{cartCount}</ItemCount>
-		</CartIconContainer>
+		<div className="cart-icon-container" onClick={handleClick}>
+			<ShoppingIcon className="shopping-icon" />
+			<span className="item-count">{cartCount}</span>
+		</div>
 	);
 };
