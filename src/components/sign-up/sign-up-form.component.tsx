@@ -4,9 +4,8 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
-import { Button } from "../button/button.component";
-import { FormInput } from "../form-input/from-input.component";
-import "./sign-up-form.styles.scss";
+import { Button } from "primereact/button";
+import { InputText } from "primereact/inputtext";
 const defaultFormFields = {
   displayName: "",
   email: "",
@@ -49,43 +48,63 @@ export const SignUpForm = () => {
   return (
     <div className="sign-up-container">
       <h2>Create Account</h2>
-      <span>Sign Up With Email & Password</span>
       <form onSubmit={handleSubmit}>
-        <FormInput
-          type="text"
-          required
-          onChange={handleChange}
-          name="displayName"
-          value={displayName}
-          label="Display Name"
-        />
-        <FormInput
-          type="email"
-          required
-          onChange={handleChange}
-          name="email"
-          value={email}
-          label="Email"
-        />
-        <FormInput
-          type="password"
-          required
-          onChange={handleChange}
-          name="password"
-          value={password}
-          label="Password"
-        />
-        <FormInput
-          type="password"
-          required
-          onChange={handleChange}
-          name="confirmPassword"
-          value={confirmPassword}
-          label="Confirm Password"
-        />
-        <Button isLoading={false} type="submit">
-          Sign Up
-        </Button>
+        <div className="sign-up-form-container">
+          <div>
+            <span className="p-float-label">
+              <InputText
+                type="text"
+                required
+                onChange={handleChange}
+                name="displayName"
+                value={displayName}
+                id="SignUpDisplayName"
+              />
+              <label htmlFor="SignUpDisplayName">Display Name</label>
+            </span>
+          </div>
+          <div>
+            <span className="p-float-label">
+              <InputText
+                type="email"
+                required
+                onChange={handleChange}
+                name="email"
+                id="SignUpEmail"
+                value={email}
+              />
+              <label htmlFor="SignUpEmail">Email</label>
+            </span>
+          </div>
+          <div>
+            <span className="p-float-label">
+              <InputText
+                type="password"
+                required
+                onChange={handleChange}
+                name="password"
+                value={password}
+                id="SignUpPassword"
+              />
+              <label htmlFor="SignUpPassword">Password</label>
+            </span>
+          </div>
+
+          <div>
+            <span className="p-float-label">
+              <InputText
+                type="password"
+                required
+                onChange={handleChange}
+                name="confirmPassword"
+                value={confirmPassword}
+                id="SignUpConfirmPassword"
+              />
+              <label htmlFor="SignUpConfirmPassword">Confirm Password</label>
+            </span>
+          </div>
+        </div>
+        <Button label="Sign Up" className="p-button-raised" type="submit" />
       </form>
     </div>
   );

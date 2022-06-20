@@ -1,5 +1,4 @@
 body {
-  padding: 20px 40px;
   margin: 0;
   font-family: "Open Sans Condensed", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -11,8 +10,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 a {
@@ -22,4 +20,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.p-inputtext {
+  width: 100%;
 }

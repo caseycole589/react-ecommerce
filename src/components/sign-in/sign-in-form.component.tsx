@@ -1,10 +1,10 @@
 import { AuthError } from "firebase/auth";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
-import { Button } from "../button/button.component";
+import { Button } from "primereact/button";
 import { FormInput } from "../form-input/from-input.component";
 import "./sign-in-form.styles.scss";
-
+import { InputText } from "primereact/inputtext";
 const defaultFormFields = {
   email: "",
   password: "",
@@ -44,30 +44,38 @@ export const SignInForm = () => {
 
   return (
     <div className="sign-up-container">
-      <h2>Already Have An Account?</h2>
-      <span>Sign In With Email & Password</span>
+      <h2>Aready Have An Account Sign In</h2>
       <form onSubmit={handleSubmit}>
-        <FormInput
-          type="email"
-          required
-          onChange={handleChange}
-          name="email"
-          value={email}
-          label="Email"
-        />
-        <FormInput
-          type="password"
-          required
-          onChange={handleChange}
-          name="password"
-          value={password}
-          label="Password"
-        />
+        <div className="sign-up-form-container">
+          <div>
+            <span className="p-float-label">
+              <InputText
+                type="email"
+                required
+                onChange={handleChange}
+                name="email"
+                id="SignInEmail"
+                value={email}
+              />
+              <label htmlFor="SignInEmail">Email</label>
+            </span>
+          </div>
+          <div>
+            <span className="p-float-label">
+              <InputText
+                id="SignInPassword"
+                type="password"
+                required
+                onChange={handleChange}
+                name="password"
+                value={password}
+              />
+              <label htmlFor="SignInPassword">Password</label>
+            </span>
+          </div>
+        </div>
         <div className="buttons-container">
-          <Button isLoading={false} type="submit">
-            Sign In
-          </Button>
-          {/*TODO get rid of google signin*/}
+          <Button label="Sign In" className="p-button-raised" type="submit" />
         </div>
       </form>
     </div>
