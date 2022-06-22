@@ -5,11 +5,18 @@
   //   height: 350px;
   //   align-items: center;
   //   position: relative;
-
+  .curve-border {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
   img {
     width: 100%;
     height: 350px;
     object-fit: cover;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
   }
 
   //   button {

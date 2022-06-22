@@ -28,10 +28,10 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
 	);
 	return (
 		<div className="product-card-container">
-			<Card footer={footer} header={header}>
+			<Card footer={footer} header={header} className="curve-border">
 				<div className="product-card-content-container">
-					<div className="product-card-name">{name}</div>
-					<div className="product-card-price">{price}</div>
+					<span className="product-card-name">{name}</span>
+					<span className="product-card-price">${price}</span>
 				</div>
 			</Card>
 			{/*	<div className="footer">
