@@ -2,7 +2,6 @@ import { AuthError } from "firebase/auth";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
 import { Button } from "primereact/button";
-import { FormInput } from "../form-input/from-input.component";
 import "./sign-in-form.styles.scss";
 import { InputText } from "primereact/inputtext";
 const defaultFormFields = {

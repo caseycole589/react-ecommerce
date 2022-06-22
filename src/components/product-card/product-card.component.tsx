@@ -35,15 +35,6 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
 					<span className="product-card-price">${price}</span>
 				</div>
 			</Card>
-			{/*	<div className="footer">
-			</div>*/}
-			{/*<Button
-				isLoading={false}
-				buttonType={BUTTON_TYPE_CLASSES.inverted}
-				onClick={handleAddItem}
-			>*/}
-			{/*Add To Cart*/}
-			{/*</Button>*/}
 		</div>
 	);
 };
