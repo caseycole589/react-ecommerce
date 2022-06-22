@@ -23,6 +23,7 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
 				label="Add To Cart"
 				icon="pi pi-check"
 				style={{ marginRight: ".25em" }}
+				onClick={handleAddItem}
 			/>
 		</span>
 	);
