@@ -7,8 +7,12 @@ import {
 import "./cart-icon.styles.scss";
 //@ts-ignore
 import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
+import { useEffect } from "react";
 
 export const CartIcon = () => {
+	useEffect(() => {
+		dispatch(setCartOpen(false));
+	}, []);
 	const dispatch = useDispatch();
 	const cartOpen = useSelector(selectCartOpen);
 	const cartCount = useSelector(selectCartCount);
