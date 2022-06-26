@@ -3,7 +3,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
+  padding: 1em;
   @media screen and (max-width: 800px) {
     padding: 10px;
     height: 60px;
@@ -11,9 +12,7 @@
   }
 
   .logo-container {
-    height: 100%;
-    width: 70px;
-    padding: 10px;
+    width: 30px;
     @media screen and (max-width: 800px) {
       padding: 0;
     }
@@ -29,17 +28,21 @@
 
   .nav-links-container {
     width: 50%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    @media screen and (max-width: 800px) {
-      height: 40px;
-      width: 80%;
-    }
+
     .nav-link {
-      padding: 10px 15px;
+      padding: 10px 10px;
       cursor: pointer;
+    }
+
+    @media screen and (max-width: 800px) {
+      height: 30px;
+      width: 80%;
+      .nav-link {
+        padding: 0px 8px;
+      }
     }
   }
 }
