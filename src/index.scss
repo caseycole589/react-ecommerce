@@ -3,11 +3,7 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  //screens < 800px
-  @media screen and (max-width: 800px) {
-    padding: 10px;
-  }
-  background-color: #eff3f8;
+  background-color: #ebf4ff;
 }
 
 code {
