@@ -2,10 +2,13 @@ import { Button } from "primereact/button";
 import { CartItem } from "../cart-item/cart-item.component";
 import { Link } from "react-router-dom";
 import { selectCartItems } from "../../store/cart/cart.selector";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./cart-dropdown.styles.scss";
+import { setCartOpen } from "../../store/cart/cart.action";
 export const CartDropdown = () => {
 	const cartItems = useSelector(selectCartItems);
+	const handleCheckoutClick = () => dispatch(setCartOpen(false));
+	const dispatch = useDispatch();
 	return (
 		<div className="cart-dropdown-container">
 			<div className="cart-items">
@@ -18,7 +21,12 @@ export const CartDropdown = () => {
 				)}
 			</div>
 			<Link className="nav-link" to="/checkout">
-				<Button className="cart-checkout-button">Checkout</Button>
+				<Button
+					onClick={handleCheckoutClick}
+					className="cart-checkout-button"
+				>
+					Checkout
+				</Button>
 			</Link>
 		</div>
 	);
