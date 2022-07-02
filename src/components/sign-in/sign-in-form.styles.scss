@@ -1,8 +1,12 @@
 .sign-up-container {
 	width: 400px;
-	h2 {
-		margin-bottom: 2em;
+	@media screen and (max-width: 800px) {
+		width: unset;
+		padding: 0em 1em;
 	}
+}
+.sign-in {
+	margin-bottom: 20px;
 }
 .sign-up-form-container > div {
 	margin-bottom: 2em;

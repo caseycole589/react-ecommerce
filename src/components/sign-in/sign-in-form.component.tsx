@@ -44,8 +44,8 @@ export const SignInForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
-      <h2>Aready Have An Account Sign In</h2>
+    <div className="sign-up-container sign-in">
+      <h2>Sign In</h2>
       <form onSubmit={handleSubmit}>
         <div className="sign-up-form-container">
           <div>
