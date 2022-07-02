@@ -1,9 +1,6 @@
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
-import {} from "react-router-dom";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-//@ts-ignore
-import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { CartDropdown } from "../../components/cart-dropdown/cart-dropdown.component";
 import { CartIcon } from "../../components/cart-icon/cart-icon.component";
 import { selectCartOpen } from "../../store/cart/cart.selector";
@@ -18,9 +15,6 @@ export const Navigation = () => {
 	return (
 		<Fragment>
 			<div className="navigation">
-				<Link to="/" className="logo-container">
-					<Logo className="logo" />
-				</Link>
 				<div className="nav-links-container">
 					<div id="shopLink" className="nav-link">
 						<span>Shop</span>
@@ -57,9 +51,10 @@ export const Navigation = () => {
 							</div>
 						</div>
 					</div>
-					<Link className="nav-link" to="/wishlist">
+					{/*					<Link className="nav-link" to="/wishlist">
 						<span>Wish List</span>
 					</Link>
+*/}
 					{currentUser ? (
 						<span className="nav-link" onClick={signOutUser}>
 							<span>Sign Out</span>
@@ -69,6 +64,11 @@ export const Navigation = () => {
 							<span>Sign In</span>
 						</Link>
 					)}
+				</div>
+				<Link to="/">
+					<div className="brand-header">Urban Clothing</div>
+				</Link>
+				<div className="nav-links-container">
 					<CartIcon />
 				</div>
 				{cartOpen && <CartDropdown />}

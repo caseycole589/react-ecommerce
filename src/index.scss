@@ -1,9 +1,10 @@
 body {
   margin: 0;
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Rubik", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #ebf4ff;
+  background-color: #f1f0ee;
+  color: rgb(36, 36, 36);
 }
 
 code {
@@ -21,4 +22,30 @@ a {
 
 .p-inputtext {
   width: 100%;
+}
+
+button {
+  background-color: #cb4b4b;
+  border: 2px solid #cb4b4b;
+  color: #f5f4f2;
+  padding: 10px 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(110%);
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+// overide built in input theme
+.p-inputtext:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #b9b9b9 !important;
+  border-color: #bfa9a9 !important;
+}
+.p-inputtext:enabled:hover {
+  border-color: #848484 !important;
 }

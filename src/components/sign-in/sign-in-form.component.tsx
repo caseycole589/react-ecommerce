@@ -1,9 +1,10 @@
 import { AuthError } from "firebase/auth";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
-import { Button } from "primereact/button";
 import "./sign-in-form.styles.scss";
 import { InputText } from "primereact/inputtext";
+import { useNavigate } from "react-router-dom";
+
 const defaultFormFields = {
   email: "",
   password: "",
@@ -12,7 +13,7 @@ const defaultFormFields = {
 export const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { password, email } = formFields;
-
+  const navigate = useNavigate();
   const resetFormFields = () => setFormFields(defaultFormFields);
 
   const handleSubmit = async (evt: FormEvent<HTMLFormElement>) => {
@@ -20,6 +21,7 @@ export const SignInForm = () => {
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
+      navigate("/");
     } catch (err) {
       //TODO error handler turn red
       switch ((err as AuthError).code) {
@@ -74,7 +76,9 @@ export const SignInForm = () => {
           </div>
         </div>
         <div className="buttons-container">
-          <Button label="Sign In" className="p-button-raised" type="submit" />
+          <button className="sign-in-button" type="submit">
+            Sign In
+          </button>
         </div>
       </form>
     </div>

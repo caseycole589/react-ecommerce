@@ -16,10 +16,8 @@ export const DirectoryItem: FC<DirectoryItemProps> = ({
   return (
     <div className="directory-item-container" onClick={onNavigateHandler}>
       <BackgroundImage imageUrl={imageUrl} />
-      <div className="body">
-        <h2>{title}</h2>
-        <p>Shop Now</p>
-      </div>
+      <h2>{title}</h2>
+      <button className="shop-now-button">Shop Now</button>
     </div>
   );
 };

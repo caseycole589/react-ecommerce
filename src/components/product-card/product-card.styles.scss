@@ -4,6 +4,7 @@
     border-top-left-radius: 15px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    box-shadow: unset;
   }
   img {
     width: 100%;
@@ -12,7 +13,9 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
   }
-
+  .product-card-button {
+    width: 100%;
+  }
   .product-card-content-container {
     display: flex;
 

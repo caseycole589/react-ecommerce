@@ -1,4 +1,3 @@
-import { Button } from "primereact/button";
 import { CartItem } from "../cart-item/cart-item.component";
 import { Link } from "react-router-dom";
 import { selectCartItems } from "../../store/cart/cart.selector";
@@ -21,12 +20,12 @@ export const CartDropdown = () => {
 				)}
 			</div>
 			<Link className="nav-link" to="/checkout">
-				<Button
+				<button
 					onClick={handleCheckoutClick}
 					className="cart-checkout-button"
 				>
 					Checkout
-				</Button>
+				</button>
 			</Link>
 		</div>
 	);

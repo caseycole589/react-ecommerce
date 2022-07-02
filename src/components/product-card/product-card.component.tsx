@@ -4,7 +4,6 @@ import { addItemToCart } from "../../store/cart/cart.action";
 import { selectCartItems } from "../../store/cart/cart.selector";
 import { CategoryItem } from "../../store/categories/category.types";
 import { Card } from "primereact/card";
-import { Button } from "primereact/button";
 
 import "./product-card.styles.scss";
 interface ProductCardProps {
@@ -19,12 +18,13 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
 	const header = <img src={imageUrl} alt={`${name}`} />;
 	const footer = (
 		<span>
-			<Button
-				label="Add To Cart"
-				icon="pi pi-check"
+			<button
+				className="product-card-button"
 				style={{ marginRight: ".25em" }}
 				onClick={handleAddItem}
-			/>
+			>
+				Add To Cart
+			</button>
 		</span>
 	);
 	return (

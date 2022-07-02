@@ -11,42 +11,59 @@ export interface DirectoryCategory {
 
 const categories: DirectoryCategory[] = [
   {
+    id: 5,
+    title: "Mens",
+    imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+    route: "shop/mens",
+  },
+  {
+    id: 4,
+    title: "Womens",
+    imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
+    route: "shop/womens",
+  },
+  {
     id: 1,
-    title: "hats",
+    title: "Hats",
     imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
     route: "shop/hats",
   },
   {
     id: 2,
-    title: "jackets",
+    title: "Jackets",
     imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
     route: "shop/jackets",
   },
   {
     id: 3,
-    title: "sneakers",
+    title: "Sneakers",
     imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
     route: "shop/sneakers",
-  },
-  {
-    id: 4,
-    title: "womens",
-    imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-    route: "shop/womens",
-  },
-  {
-    id: 5,
-    title: "mens",
-    imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-    route: "shop/mens",
   },
 ];
 export const DirectoryComponent = () => {
   return (
     <div className="directory-container">
-      {categories.map((category) => (
-        <DirectoryItem key={category.title} category={category} />
-      ))}
+      <div className="directory-item">
+        <DirectoryItem key={categories[0].title} category={categories[0]} />
+      </div>
+      <div className="directory-item-row">
+        <div className="directory-item">
+          <DirectoryItem key={categories[1].title} category={categories[1]} />
+        </div>
+        <div className="directory-item">
+          <DirectoryItem key={categories[2].title} category={categories[2]} />
+        </div>
+      </div>
+      <div className="directory-item-row">
+        <div className="directory-item">
+          <DirectoryItem key={categories[3].title} category={categories[3]} />
+        </div>
+
+        <div className="directory-item">
+          <DirectoryItem key={categories[4].title} category={categories[4]} />
+        </div>
+      </div>
     </div>
   );
 };

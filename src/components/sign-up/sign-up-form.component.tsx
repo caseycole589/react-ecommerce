@@ -4,8 +4,9 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
-import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
+import { useNavigate } from "react-router-dom";
+
 const defaultFormFields = {
   displayName: "",
   email: "",
@@ -17,6 +18,7 @@ export const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, password, confirmPassword, email } = formFields;
   const resetFormFields = () => setFormFields(defaultFormFields);
+  const navigate = useNavigate();
 
   const handleSubmit = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -31,6 +33,7 @@ export const SignUpForm = () => {
       )) as any;
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
+      navigate("/");
     } catch (err) {
       if ((err as AuthError).code === "auth/email-already-in-use") {
         //TODO red error message
@@ -104,7 +107,9 @@ export const SignUpForm = () => {
             </span>
           </div>
         </div>
-        <Button label="Sign Up" className="p-button-raised" type="submit" />
+        <button className="sign-in-button" type="submit">
+          Sign Up
+        </button>
       </form>
     </div>
   );
