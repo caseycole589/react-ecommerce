@@ -1,0 +1,36 @@
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background: #fff;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
+    transition-property: transform;
+    box-shadow: 10px 0 20px -5px rgba(115, 115, 115, 0.75);
+}
+
+.sidenav.open {
+    width: 250px;
+    h4 {
+        padding-left: 18px;
+        margin-bottom: 8px;
+        cursor: auto;
+    }
+    .shop-dropdown-link-side {
+        font-size: 16px;
+        padding: 12px 12px 12px 24px;
+        line-height: 1;
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+        color: rgb(74, 74, 74);
+        &:hover {
+            background-color: #f7a7a7;
+            color: black;
+        }
+    }
+}

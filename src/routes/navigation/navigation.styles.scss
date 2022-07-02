@@ -11,13 +11,16 @@
   @media screen and (max-width: 800px) {
     padding: 10px;
     height: 55px;
-    margin-bottom: 20px;
   }
   .brand-header {
     font-family: Pacifico;
     font-size: 24px;
     line-height: 27px;
     margin-right: 12vw;
+    @media screen and (max-width: 800px) {
+      margin-right: 0px;
+      line-height: 35px;
+    }
   }
 
   .nav-links-container {
@@ -30,16 +33,25 @@
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
+      // color: rgb(74, 74, 74);
     }
     .nav-link:hover span {
       border-bottom: 3px solid #cb4b4b;
       padding-bottom: 10px;
     }
-
+  }
+  .nav-links-container-normal {
     @media screen and (max-width: 800px) {
-      .nav-link {
-        padding: 0px 8px;
-      }
+      display: none;
+    }
+  }
+  .nav-links-container-small {
+    display: none;
+    @media screen and (max-width: 800px) {
+      display: block;
+      font-size: 25px;
+      font-weight: bold;
+      cursor: pointer;
     }
   }
   .shop-dropdown {
@@ -69,6 +81,7 @@
     text-decoration: none;
     display: block;
     cursor: pointer;
+    color: rgb(74, 74, 74);
   }
   .shop-dropdown-link:hover {
     background-color: #f7a7a7;
