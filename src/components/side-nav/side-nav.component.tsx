@@ -15,6 +15,7 @@ export const SideNav: FC<SideNavProps> = (props) => {
 	const currentUser = useSelector(selectCurrentUser);
 	return (
 		<div className={`sidenav ${isOpen ? "open" : ""}`}>
+			<h5>Account</h5>
 			{currentUser ? (
 				<span className="shop-dropdown-link-side" onClick={signOutUser}>
 					<span>Sign Out</span>
@@ -24,6 +25,8 @@ export const SideNav: FC<SideNavProps> = (props) => {
 					<span>Sign In</span>
 				</Link>
 			)}
+			<hr />
+			<h5>Shop</h5>
 			<div
 				onClick={() => navigate("/shop/hats")}
 				className="shop-dropdown-link-side"
