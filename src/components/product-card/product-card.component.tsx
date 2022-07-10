@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart } from "../../store/cart/cart.action";
 import { selectCartItems } from "../../store/cart/cart.selector";
@@ -13,11 +13,21 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
 	const dispatch = useDispatch();
 	const cartItems = useSelector(selectCartItems);
 	const { imageUrl, name, price } = product;
-
+	const [toggled, setToggled] = useState(false);
 	const handleAddItem = () => dispatch(addItemToCart(product, cartItems));
+	const handleRotate = () => {
+		setToggled(!toggled);
+	};
 	const header = <img src={imageUrl} alt={`${name}`} />;
 	const footer = (
 		<span>
+			<button
+				className="product-card-button description"
+				style={{ marginRight: ".25em" }}
+				onClick={handleRotate}
+			>
+				Description
+			</button>
 			<button
 				className="product-card-button"
 				style={{ marginRight: ".25em" }}
@@ -29,12 +39,39 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
 	);
 	return (
 		<div className="product-card-container">
-			<Card footer={footer} header={header} className="curve-border">
-				<div className="product-card-content-container">
-					<span className="product-card-name">{name}</span>
-					<span className="product-card-price">${price}</span>
+			<div className="flip-card">
+				<div
+					className={`flip-card-inner ${
+						toggled ? "flip-card-rotated" : ""
+					}`}
+				>
+					<div className="flip-card-front">
+						<Card
+							footer={footer}
+							header={header}
+							className="curve-border"
+						>
+							<div className="product-card-content-container">
+								<span className="product-card-name">
+									{name}
+								</span>
+								<span className="product-card-price">
+									${price}
+								</span>
+							</div>
+						</Card>
+					</div>
+					<div className="flip-card-back">
+						<Card
+							footer={footer}
+							// header={header}
+							className="curve-border"
+						>
+							<div className="product-card-content-container"></div>
+						</Card>
+					</div>
 				</div>
-			</Card>
+			</div>
 		</div>
 	);
 };
