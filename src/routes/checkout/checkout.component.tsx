@@ -20,7 +20,7 @@ export const Checkout = () => {
 					<span className="total">Total: ${cartTotal}</span>
 				</div>
 				<div>
-					<Link className="nav-link" to="/checkout">
+					<Link className="nav-link" to="/payment">
 						<button
 							onClick={handleCheckoutClick}
 							className="checkout-button"
