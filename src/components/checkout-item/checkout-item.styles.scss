@@ -18,10 +18,24 @@
   .quantity,
   .price {
     flex: 1;
+    text-align: center;
   }
-
+  @media screen and (max-width: 800px) {
+    .name {
+      font-size: 14px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .quantity,
+    .price {
+      font-size: 16px;
+    }
+  }
   .quantity {
     display: flex;
+    align-items: center;
+    justify-content: center;
     .text {
       margin-right: 1em;
     }

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Authentication } from "./routes/authentication/authentication.component";
 import { Checkout } from "./routes/checkout/checkout.component";
+import { Payment } from "./routes/payment/payment.component.tsx";
 import { Home } from "./routes/home/home.component";
 import { WishList } from "./routes/wishlist/wishlist.component";
 import { Navigation } from "./routes/navigation/navigation.component";
@@ -35,6 +36,7 @@ export const App = () => {
         <Route index element={<Home />} />
         <Route path="shop/*" element={<Shop />} />
         <Route path="checkout" element={<Checkout />} />
+        <Route path="payment" element={<Payment />} />
         <Route path="auth" element={<Authentication />} />
         <Route path="wishlist" element={<WishList />} />
       </Route>
