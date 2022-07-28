@@ -1,5 +1,16 @@
+.stripe-warning {
+	margin-left: 200px;
+	@media screen and (max-width: 800px) {
+		font-size: 10px;
+		margin-left: 20px;
+	}
+}
 .payment-container {
 	display: flex;
+	@media screen and (max-width: 800px) {
+		flex-direction: column;
+		margin: 1.5em 1em;
+	}
 	justify-content: space-around;
 	.p-float-label {
 		margin-top: 1.5em;
@@ -10,5 +21,23 @@
 		div {
 			width: 48%;
 		}
+	}
+	.card-expiry-container {
+		margin-top: -20px;
+		display: flex;
+		justify-content: space-between;
+		div {
+			width: 32%;
+			max-width: 150px;
+		}
+	}
+	.summary-item-container {
+		display: flex;
+		justify-content: space-between;
+	}
+	.place-order-button {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 1em;
 	}
 }
