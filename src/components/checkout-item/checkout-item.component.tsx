@@ -27,6 +27,7 @@ export const CheckoutItem: FC<CheckoutItemProps> = ({ product }) => {
 
 			<span className="name">{name}</span>
 			<span className="quantity">
+				<span className="text">Qty.</span>
 				<div onClick={handleRemoveItem} className="arrow">
 					&#10094;
 				</div>
