@@ -18,7 +18,9 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
 	const handleRotate = () => {
 		setToggled(!toggled);
 	};
-	const description = product.description.split(",");
+	const description = product.description
+		? product.description.split(",")
+		: null;
 	const header = <img src={imageUrl} alt={`${name}`} />;
 	const footer = (
 		<span>
