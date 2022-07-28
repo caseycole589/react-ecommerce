@@ -22,11 +22,19 @@
       }
     }
   }
-
-  .total {
-    margin-top: 30px;
-    margin-left: auto;
-    font-size: 36px;
+  .total-container {
+    align-self: flex-end;
+    display: flex;
+    margin-top: 1em;
+    .total-text-container {
+      margin-top: 0.5em;
+      .total {
+        font-size: 23px;
+      }
+    }
+    .checkout-button {
+      margin-left: 2em;
+    }
   }
   @media screen and (max-width: 800px) {
     width: unset;
