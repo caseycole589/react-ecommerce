@@ -18,6 +18,7 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
 	const handleRotate = () => {
 		setToggled(!toggled);
 	};
+	const description = product.description.split(",");
 	const header = <img src={imageUrl} alt={`${name}`} />;
 	const footer = (
 		<span>
@@ -46,28 +47,37 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
 					}`}
 				>
 					<div className="flip-card-front">
-						<Card
-							footer={footer}
-							header={header}
-							className="curve-border"
-						>
+						<Card header={header} className="curve-border">
 							<div className="product-card-content-container">
-								<span className="product-card-name">
-									{name}
-								</span>
-								<span className="product-card-price">
-									${price}
-								</span>
+								<div className="product-card-content-container-child">
+									<span className="product-card-name">
+										{name}
+									</span>
+									<span className="product-card-price">
+										${price}
+									</span>
+								</div>
+								{footer}
 							</div>
 						</Card>
 					</div>
 					<div className="flip-card-back">
 						<Card
-							footer={footer}
+							// footer={footer}
 							// header={header}
 							className="curve-border"
 						>
-							<div className="product-card-content-container"></div>
+							<div className="product-card-content-back-container">
+								<ul>
+									{description &&
+										description.map((item, index) => (
+											<li key={index.toString()}>
+												{item}
+											</li>
+										))}
+								</ul>
+								{footer}
+							</div>
 						</Card>
 					</div>
 				</div>

@@ -35,17 +35,25 @@
     transition-timing-function: ease-in-out;
     cursor: pointer;
   }
+  .product-card-content-back-container ul {
+    height: 400px;
+    padding-left: 1em;
+  }
 
   .product-card-content-container {
     display: flex;
+    flex-direction: column;
+    .product-card-content-container-child {
+      display: flex;
+      height: 78px;
+      .product-card-name {
+        width: 90%;
+        font-size: 18px;
+      }
 
-    .product-card-name {
-      width: 90%;
-      font-size: 18px;
-    }
-
-    .product-card-price {
-      width: 10%;
+      .product-card-price {
+        width: 10%;
+      }
     }
   }
   /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
@@ -60,7 +68,7 @@
     position: relative;
     width: 100%;
     height: 600px;
-    text-align: center;
+    // text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
   }

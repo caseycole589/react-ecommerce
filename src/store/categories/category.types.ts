@@ -10,6 +10,7 @@ export interface CategoryItem {
 	imageUrl: string;
 	name: string;
 	price: number;
+	description: string;
 }
 
 export interface Category {
